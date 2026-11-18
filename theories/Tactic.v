@@ -106,7 +106,7 @@ Elpi Accumulate lp:{{
   solve Goal NewGoals :-
     Goal = goal _ _ GoalTy _ [trm ETarget, trm LTarget, trm H, str S, trm RuntimeRelData],
     (LTarget = {{ Prop }} ; LTarget = {{ bool }}),
-    (H = global _ ; def H _ _ _ ; decl H _ _), !,
+    (H = global _ _ ; def H _ _ _ ; decl H _ _), !,
     coq.string->name S Name,
     std.assert! (format-runtime-relation-data RuntimeRelData RuntimeRelCtx)
       "wrong runtime relations format",
@@ -117,7 +117,7 @@ Elpi Accumulate lp:{{
   solve Goal NewGoals :-
     Goal = goal _ _ GoalTy _ [trm ETarget, trm LTarget, trm H, str S],
     (LTarget = {{ Prop }} ; LTarget = {{ bool }}),
-    (H = global _ ; def H _ _ _ ; decl H _ _), !,
+    (H = global _ _ ; def H _ _ _ ; decl H _ _), !,
     coq.string->name S Name,
     coq.typecheck H T ok,
     ([] => preprocess-extra T [] (some ETarget) LTarget contravariant false T' P),
@@ -126,7 +126,7 @@ Elpi Accumulate lp:{{
   solve Goal NewGoals :-
     Goal = goal _ _ GoalTy _ [trm LTarget, trm H, str S, trm RuntimeRelData],
     (LTarget = {{ Prop }} ; LTarget = {{ bool }}),
-    (H = global _ ; def H _ _ _ ; decl H _ _), !,
+    (H = global _ _ ; def H _ _ _ ; decl H _ _), !,
     coq.string->name S Name,
     std.assert! (format-runtime-relation-data RuntimeRelData RuntimeRelCtx)
       "wrong runtime relations format",
@@ -137,7 +137,7 @@ Elpi Accumulate lp:{{
   solve Goal NewGoals :-
     Goal = goal _ _ GoalTy _ [trm LTarget, trm H, str S],
     (LTarget = {{ Prop }} ; LTarget = {{ bool }}),
-    (H = global _ ; def H _ _ _ ; decl H _ _), !,
+    (H = global _ _ ; def H _ _ _ ; decl H _ _), !,
     coq.string->name S Name,
     coq.typecheck H T ok,
     preprocess-extra T [] none LTarget contravariant false T' P,

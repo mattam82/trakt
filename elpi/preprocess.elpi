@@ -428,9 +428,9 @@ preprocess
     embedding _ ETarget E _ _ _ _ _ _,
     ( ( decl X _ _, ! )
     ; ( def X _ _ _, ! )
-    ; ( X = global (const _), ! )
-    ; ( X = global (indc _), ! )
-    ;   X = app [global (indc _)|_]
+    ; ( X = global (const _) _, ! )
+    ; ( X = global (indc _) _, ! )
+    ;   X = app [global (indc _) _|_]
     ), !,
     when (debug) (coq.say "preprocess embedded variable or constant" {coq.term->string X}).
 
